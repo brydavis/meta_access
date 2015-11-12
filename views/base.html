@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<script type="text/javascript" src="/static/main.js"></script>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="slim">
+			<form action="/" method="post">
+				<textarea name="query" type="text"></textarea>
+				<input type="radio" name="output" value="json">JSON<br>
+				<button type="submit">Run</button>
+			</form>
+ 
+			<pre id="query">{{.Query}}</pre>
+			<pre id="schemas">{{.Schemas}}</pre>
+			<script type="text/javascript">
+				$(document).ready(function () {
+					schemas.innerText = JSON.stringify(JSON.parse(schemas.innerText), null, 4)
+				})
+			</script>
+
+
+			{{if .JsonOutput}}
+				<pre id="results">{{.Results}}</pre>
+				<script type="text/javascript">
+					$(document).ready(function () {
+						results.innerText = JSON.stringify(JSON.parse(results.innerText), null, 4)
+					})
+				</script>
+			{{else}}
+				<table id="results_table" class="table"></table>
+				<script type="text/javascript">
+					var data = JSON.parse("{{.Results}}")
+				    var tbl= "<thead>"
+				    var odd_even = false
+
+					$.each(Object.keys(data[0]), function (k,v) {
+						tbl += "<th>"+v+"</th>"
+					})
+					tbl += "</thead><tbody>"
+
+				    $.each(data, function() {
+				        var tbl_row = ""
+				        $.each(this, function (k,v) {
+				            tbl_row += "<td>"+v+"</td>"
+				        })
+				        tbl += "<tr class=\""+( odd_even ? "odd" : "even")+"\">"+tbl_row+"</tr>"
+				        odd_even = !odd_even               
+				    })
+
+				    $("#results_table").html(tbl+"</tbody>")
+				</script>
+			{{end}}
+		</div>
+	</div>
+</body>
+</html>
