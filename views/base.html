@@ -12,12 +12,14 @@
 <body>
 	<div class="container">
 		<div class="slim">
-			<form action="/" method="post">
-				<textarea name="query" type="text"></textarea>
-				<input type="radio" name="output" value="json">JSON<br>
-				<button type="submit">Run</button>
-			</form>
- 
+
+			<div id="console">
+				<form action="/" method="post">
+					<textarea name="query" type="text"></textarea>
+					<input type="radio" name="output" value="json">JSON<br>
+					<button type="submit">Run</button>
+				</form>
+			</div>
 			<pre id="query">{{.Query}}</pre>
 			<pre id="schemas">{{.Schemas}}</pre>
 			<script type="text/javascript">

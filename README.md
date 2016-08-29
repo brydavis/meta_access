@@ -1,27 +1,6 @@
-# xql
+# Meta
 
-#### Cross Format Data Transformation for the Masses.
-
-Two main purposes of project:
-- Transform dynamic datasets between common encoding formats. 
-- Query datasets of any data format using common SQL syntax
-
-Upon project completion, supported formats will include (in descending order by priority):
-- CSV
-- XML
-- JSON
-- SQL
-- HTML
-- GO
-- XLSX
-- TSV
-- XSD
-- BSON
-- SHP
-- NetCDF
-- HDF5
-- YAML
-- TOML
+#### Data Analysis Done Right.
 
 
 
@@ -32,6 +11,3 @@ Upon project completion, supported formats will include (in descending order by 
 <small>
 <strong>&copy; 2015 MIT License</strong>
 </small>
-
-# Info
-# Info

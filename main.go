@@ -379,7 +379,6 @@ func RootHandler(res http.ResponseWriter, req *http.Request) {
 		}
 	}
 
-
 	if req.Method == "GET" {
 		t.Execute(res, nil)
 	} else {
@@ -450,8 +449,8 @@ func RootHandler(res http.ResponseWriter, req *http.Request) {
 
 func main() {
 	port := 8099
-	CreateDatabase("foo.db")
-	CreateTable("foo.db", "data/crime.csv", "Data")
+	// go CreateDatabase("foo.db")
+	// go CreateTable("foo.db", "data/crime.csv", "Data")
 	fmt.Printf("Ready @ %d\n", port)
 	ListenAndServe(port)
 
