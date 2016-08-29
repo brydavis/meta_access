@@ -30,6 +30,7 @@ func CreateDatabase(filename string) error {
 	os.Remove(filename)
 	_, err := os.Create(filename)
 	return err
+
 }
 
 func CreateTable(base, datafile, tablename string) {
